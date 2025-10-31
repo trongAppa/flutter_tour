@@ -1,0 +1,30 @@
+Flutter
+- OS를 가리지 않고 지원함(크로스플랫폼 지원)
+- Dart 기본 지식 필요
+
+Flutter 동작
+- native 동작이 아님
+- 운영체제에 직접적으로 컴파일하지 않고 엔진을 통해 컴파일함
+- Framework(Dart) -> Engine(C/C++) -> Embedder
+- 렌더링 된 것이라 약간 인위적인 느낌이 있음
+
+Flutter VS React Native
+- 운영체제의 자연스러운 위젯을 원하면 React 추구
+- 여러가지 기능을 간단하고 세밀하게 구현하려면 Flutter사용
+
+Flutter 환경 구현
+- Flutter SDK 설치
+ - PowerShell 실행(관리자권한) - choco install flutter(Chocolatey 깔려있어야됨)
+- Flutter doctor 에러 발생 여부 확인할 것
+- Android Studio 설치
+ - 설치페이지 : https://developer.android.com/studio
+ - Android toolchain - develop for Android devices (Android SDK version 36.1.0)
+  - 버전에 맞도록 SDK 설치
+  - Flutter doctor : Android sdkmanager not found. Update to the latest Android SDK and ensure that the cmdline-tools are installed to resolve this.
+   - 해당 에러 발생시 : setting > Languages & Framework > Android SDK > SDK Tools > Android SDK Command-line Tools (latest) 설치하면 없어짐
+ - Visual Studio - develop Windows apps (Visual Studio Community 2022 17.4.4)
+  - Fluuter doctor : Visual Studio is missing necessary components. Please re-run the Visual Studio installer for the "Desktop development with C++" workload, and include these components: MSVC v142 - VS 2019 C++ x64/x86 build tools
+   - Visual Studio installer > 수정 > C++를 사용한 데스크톱 개발 > 명시된 버전 설치
+ - ! Warning: `dart` on your path resolves to C:\tools\dart-sdk\bin\dart.exe, which is not inside your current Flutter SDK checkout at C:\tools\flutter. Consider adding C:\tools\flutter\bin to the front of your path.
+  - 해당 경고문구 발생시 : 시스템 환경변수에 flutter를 dart보다 위쪽에 명시하면 경고문구 없어짐
+ - 가상머신 구동시 문제 : Android Studio -> More Actions -> Virtual Device Manager -> 가상머신 구동시 해당 에러(StartService FAILED with error 4294967201.) 발생하면 BIOS 가상화 설정해야됨. 
